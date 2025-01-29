@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <>
             {/* Desktop Namver Component */}
-            <nav className='relative max-lg:hidden fixed'>
+            <nav className='relative max-lg:hidden'>
 
                 {/* Logo */}
                 <div className='absolute top-[-50px] left-10 xl:left-36 2xl:left-52'>
