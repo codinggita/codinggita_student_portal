@@ -8,6 +8,4 @@ EventRouter.get('/', getEventList)
 EventRouter.post('/', postEvent)
 EventRouter.delete('/', deleteEvent)
 
-
-
 export default EventRouter
