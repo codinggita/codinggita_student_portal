@@ -1,6 +1,7 @@
 import React from 'react'
 import img from '../../assets/Navbar_Logo.png'
 import Mobile_Navbar_Component from './Mobile_Navbar_Component'
+import { Outlet } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -41,6 +42,7 @@ const Navbar = () => {
                 <Mobile_Navbar_Component />
             </div>
 
+            <Outlet />
 
         </>
 
