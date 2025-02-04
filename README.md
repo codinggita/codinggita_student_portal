@@ -4,7 +4,10 @@
 
 ## Figma Design :
  https://www.figma.com/design/WDrjteBu8uWB6nWkoIAD0Y/CG-Student-Portal?node-id=0-1&t=DXSjLWQqOaVpLDgJ-1
+##
 
+## Backend Deployment :
+https://codinggita-student-portal-1.onrender.com
 ##
 
 1. **Problem Statement**  
