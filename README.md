@@ -10,6 +10,9 @@
 https://codinggita-student-portal-1.onrender.com
 ##
 
+## Postman Documentation :
+https://documenter.getpostman.com/view/39216490/2sAYX5LhiM
+
 1. **Problem Statement**  
 
    - To fill gap in our education system,CodingGita , a startup laid on missioon to change system , i.e to
