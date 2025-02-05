@@ -1,12 +1,12 @@
 import express from 'express'
-import { getPointsTable } from '../Controller/Activity.Controller/getPointsTable.Controller.js'
+import { getPointsTable, addPointsTable, deletePointsTable } from '../Controller/Activity.Controller/Activity.Controller.js'
 
 const ActivityRouter = express.Router()
 
 
 ActivityRouter.get("/", getPointsTable)
-
-
+ActivityRouter.post("/", addPointsTable)
+ActivityRouter.delete("/", deletePointsTable)
 
 
 
