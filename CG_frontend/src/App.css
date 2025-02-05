@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Zapf Humanist 601';
+    src: url('/fonts/ZapfHumanist601.woff2') format('woff2'),
+         url('/fonts/ZapfHumanist601.woff') format('woff'),
+         url('/fonts/ZapfHumanist601.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  

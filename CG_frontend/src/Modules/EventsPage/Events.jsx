@@ -4,6 +4,7 @@ import Left_EventCard from './Left_EventCard'
 import Right_EventCard from './Right_EventCard'
 import axios from 'axios';
 
+
 import { Cloudinary } from '@cloudinary/url-gen';
 import { auto } from '@cloudinary/url-gen/actions/resize';
 import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
@@ -38,8 +39,18 @@ const Events = () => {
 
     return (
         <>
-            <div className=''>
-                h,o
+            {/* For Screens of Size Small then lg */}
+            <div className='lg:hidden container m-auto mt-10'>
+                {Loading ? (
+                    null
+                ) : (
+                    data.map((item, index) => (
+                        <div key={item._id} className="flex flex-col items-center max-[372px]:scale-82 ">
+                            {/* Event Card */}
+                            <Left_EventCard cardData={item} className="ml-8" />
+                        </div>
+                    ))
+                )}
             </div>
 
 
@@ -49,7 +60,7 @@ const Events = () => {
             {Loading ? <img src="loadGif" alt="" /> : (
                 <div className="relative flex justify-center mt-45 max-lg:hidden">
                     {/* Vertical Line */}
-                    <div className="absolute h-[1380px] w-[1.5px] bg-gray-300"></div>
+                    <div className="absolute h-[1300px] w-[1.5px] bg-gray-300"></div>
 
                     {/* Event Cards Container */}
                     <div className="relative flex flex-col gap-8 pt-5">
@@ -81,8 +92,9 @@ const Events = () => {
             )}
 
 
-
-
+            <div className='flex bg-amber-300 justify-center mt-10'>
+                Pagination
+            </div>
 
         </>
     )

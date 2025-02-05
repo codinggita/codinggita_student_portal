@@ -5,7 +5,7 @@ const Left_EventCard = ({ cardData }) => {
 
         <>
 
-            <div className='flex items-start mb-40'>
+            <div className='flex items-start lg:mb-40 max-lg:mb-30'>
 
                 <div className='w-[360px] h-[220px]'>
                     <h1 className={`text-black font-inter text-[1.4605rem] font-semibold text-right`}
@@ -28,7 +28,7 @@ const Left_EventCard = ({ cardData }) => {
                     <span className='mt-2 cursor-pointer'>Read More ➡️</span>
                 </div>
 
-                <div class= {`flex items-center group pt-2 pl-5`} >
+                <div class= {`flex items-center group pt-2 pl-5 max-lg:hidden`} >
                     {/* <!-- Outer Circle --> */}
                     <div class="w-4 h-4 rounded-full bg-gray-300 group-hover:bg-purple-700 flex items-center justify-center transition">
                         {/* <!-- Inner Circle --> */}
