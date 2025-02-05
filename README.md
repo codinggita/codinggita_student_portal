@@ -4,8 +4,14 @@
 
 ## Figma Design :
  https://www.figma.com/design/WDrjteBu8uWB6nWkoIAD0Y/CG-Student-Portal?node-id=0-1&t=DXSjLWQqOaVpLDgJ-1
-
 ##
+
+## Backend Deployment :
+https://codinggita-student-portal-1.onrender.com
+##
+
+## Postman Documentation :
+https://documenter.getpostman.com/view/39216490/2sAYX5LhiM
 
 1. **Problem Statement**  
 
