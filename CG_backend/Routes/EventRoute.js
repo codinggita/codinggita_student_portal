@@ -8,4 +8,4 @@ EventRouter.get('/', getEventList)
 EventRouter.post('/', postEvent)
 EventRouter.delete('/', deleteEvent)
 
-export default EventRouterx
+export default EventRouter;

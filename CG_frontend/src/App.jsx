@@ -8,6 +8,8 @@ import Login from './Modules/Authentication/Login';
 import SignUp from './Modules/Authentication/SignUp';
 import LandingPage from './Modules/LandingPage/LandingPage';
 import Newsletter from './Modules/NewsletterPage/Newsletter';
+import Revamp from './Modules/Revamp';
+import Portfolio from './Modules/Portfolio';
 
 
 function App() {
@@ -16,6 +18,10 @@ function App() {
     <>
       <Router>
         <Routes>
+          
+          <Route path="/cg" element={<Revamp />} />
+          <Route path="/cg/port" element={<Portfolio />} />
+
           <Route element={<Navbar />}>
 
             <Route path="/" element={<LandingPage />} />
@@ -26,6 +32,7 @@ function App() {
             <Route path="/newsletter" element={<Newsletter />} />
 
           </Route>
+
         </Routes>
       </Router>
 

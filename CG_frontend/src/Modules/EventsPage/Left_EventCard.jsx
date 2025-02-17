@@ -1,4 +1,6 @@
 import React from 'react'
+import { IoIosArrowRoundUp } from "react-icons/io";
+
 
 const Left_EventCard = ({ cardData }) => {
     return (
@@ -25,10 +27,13 @@ const Left_EventCard = ({ cardData }) => {
 
                     <p className='mt-2 text-gray-700'>{cardData?.description}</p>
 
-                    <span className='mt-2 cursor-pointer'>Read More ➡️</span>
+                    <div className="pt-2 flex items-center gap-1 text-purple-800 font-medium cursor-pointer hover:text-purple-600">
+                        <span>Read now</span>
+                        <IoIosArrowRoundUp className="rotate-90 text-2xl" />
+                    </div>
                 </div>
 
-                <div class= {`flex items-center group pt-2 pl-5 max-lg:hidden`} >
+                <div class={`flex items-center group pt-2 pl-5 max-lg:hidden`} >
                     {/* <!-- Outer Circle --> */}
                     <div class="w-4 h-4 rounded-full bg-gray-300 group-hover:bg-purple-700 flex items-center justify-center transition">
                         {/* <!-- Inner Circle --> */}

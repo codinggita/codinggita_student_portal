@@ -4,6 +4,7 @@ import cors from 'cors'
 import mongoose from 'mongoose';
 import EventRouter from './Routes/EventRoute.js'
 import ActivityRouter from './Routes/ActivityRoute.js'
+import PortfolioRoute from './Routes/PortfolioRoute.js'
 
 // Configure dotenv
 dotenv.config();
@@ -33,6 +34,9 @@ app.use('/students/events', EventRouter)
 
 // Student Activity Router
 app.use('/students/activity', ActivityRouter)
+
+// Portfolio Router
+app.use('/portfolio', PortfolioRoute)
 
 
 app.listen(PORT, () => {
