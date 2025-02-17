@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import EventRouter from './Routes/EventRoute.js'
 import ActivityRouter from './Routes/ActivityRoute.js'
 import PortfolioRoute from './Routes/PortfolioRoute.js'
+import AuthRoute from './Routes/AuthRoute.js'
 
 // Configure dotenv
 dotenv.config();
@@ -28,6 +29,8 @@ const connectDB = async () => {
 
 connectDB();
 
+// Authenntication Router
+app.use('/auth', PortfolioRoute)
 
 // Events Router
 app.use('/students/events', EventRouter)
@@ -37,6 +40,8 @@ app.use('/students/activity', ActivityRouter)
 
 // Portfolio Router
 app.use('/portfolio', PortfolioRoute)
+
+
 
 
 app.listen(PORT, () => {
