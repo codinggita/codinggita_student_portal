@@ -30,7 +30,7 @@ const connectDB = async () => {
 connectDB();
 
 // Authenntication Router
-app.use('/auth', PortfolioRoute)
+app.use('/auth', AuthRoute)
 
 // Events Router
 app.use('/students/events', EventRouter)
