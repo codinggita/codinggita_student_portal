@@ -5,18 +5,35 @@ import { User } from '../../Model/User.Model.js'
 export const registerUser = async (req, res) => {
     try {
         const { name, email, password } = req.body;
-        const user = new User({ name, email, password })
-        await user.save();
-        res.json({ token: user.generateToken(), user });
-    } catch (error) {
-        res.status(400).json({ error: "User already exists" });
-    }
 
+        // Validate required fields
+        if (!name || !email || !password) {
+            return res.status(400).json({ error: "All fields are required" });
+        }
+
+        // Check if user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ error: "User already exists" });
+        }
+
+
+        const user = new User({ name, email, password });
+
+        await user.save();
+
+        // Assuming generateToken is a method on the User model
+        res.json({ token: user.generateToken(), user: user });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Something went wrong. Please try again." });
+    }
 }
 
 
 
-// Login User
+// Login User 
 
 export const loginUser = async (req, res) => {
     try {
@@ -27,7 +44,7 @@ export const loginUser = async (req, res) => {
             return res.status(401).json({ error: "Invalid credentials" });
         }
 
-        res.json({ token: user.generateToken(), user });
+        res.json({ token: user.generateToken(), user: user });
 
     } catch (error) {
         console.error("Login error:", error); // Logs error to console
