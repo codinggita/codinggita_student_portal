@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar /> {/* Navbar should be placed outside Routes */}
+        {/* <Navbar /> */}
         <Routes>
           <Route path="/cg" element={<Revamp />} />
 
