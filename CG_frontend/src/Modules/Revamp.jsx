@@ -2,7 +2,9 @@ import React from 'react'
 
 const Revamp = () => {
   return (
-    <div>Revamp</div>
+
+<div>Revamp Bolte</div>
+
   )
 }
 

@@ -1,12 +1,12 @@
 import React from 'react'
-import { useStore } from '../stores/store.js'
+import { authStore } from '../Stores/store.js'
 import { Navigate } from 'react-router-dom';
 
 
 
 const ProtectedRoute = ({ children }) => {
 
-    const { isAuthenticated } = useStore();
+    const { isAuthenticated } = authStore();
 
     return isAuthenticated ? children : <Navigate to="/login" />;
 

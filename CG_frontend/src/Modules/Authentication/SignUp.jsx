@@ -1,48 +1,39 @@
-import React, { useState } from "react";
-import {authStore} from "../../Stores/store.js"; 
+import React from "react";
+import { SignupForm } from '../../components/signup-form'
+
 
 const SignUp = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    const { register } = authStore(); // Ensure this function exists in the store
-
-    const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevents page refresh
-
-        try {
-            const response = await register(name, email, password);
-            if (!response.success) {
-                console.log(response.message);
-            } else {
-                console.log("Success");
-                // navigate('/dashboard');  // Uncomment if using React Router
-            }
-        } catch (error) {
-            console.error("Error during registration:", error);
-        }
-    };
 
     return (
-        <div className="mt-45">
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Name</label>
-                    <input type="text" onChange={(e) => setName(e.target.value)} value={name} />
+        <>
+
+            <div className="grid min-h-svh lg:grid-cols-2">
+                <div className="flex flex-col gap-4 p-6 md:p-10">
+                    <div className="flex justify-center gap-2 md:justify-start">
+                        <a href="#" className="flex items-center gap-2 font-medium">
+                            <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
+                                {/* <GalleryVerticalEnd className="size-4" /> */}
+                            </div>
+                            Acme Inc.
+                        </a>
+                    </div>
+                    <div className="flex flex-1 items-center justify-center">
+                        <div className="w-full max-w-xs">
+                            <SignupForm />
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label>Email</label>
-                    <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+                <div className="relative hidden bg-muted lg:block">
+                    <img
+                        src="/placeholder.svg"
+                        alt="Image"
+                        className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+                    />
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} />
-                </div>
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
-    );
+            </div>
+        </>
+    )
+
 };
 
 export default SignUp;
