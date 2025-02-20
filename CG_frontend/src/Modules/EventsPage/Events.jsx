@@ -96,7 +96,7 @@ const Events = () => {
 
         <>
 
-            <div className='ml-[288px] bg-[#171c34] w-fit flex flex-wrap justify-center pt-10 h-screen'>
+            <div className=' bg-[#171c34] w-fit flex flex-wrap justify-center pt-10 h-screen'>
 
                 {Loading ? null : (
                     data.map((item) => (

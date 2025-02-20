@@ -9,6 +9,7 @@ import SignUp from './Modules/Authentication/SignUp';
 import LandingPage from './Modules/LandingPage/LandingPage';
 import Newsletter from './Modules/NewsletterPage/Newsletter';
 import Revamp from './Modules/Revamp';
+import {Revamp2} from './Modules/Revamp2';
 import PortfolioSetup from './Modules/PortfolioPage/PortfolioSetup';
 import ProtectedRoute from './Modules/ProtectedRoute';
 import ProjectPage from './Modules/ProjectPage/ProjectPage';
@@ -27,7 +28,7 @@ function App() {
           {/* Protected Route Wrapping Portfolio */}
 
 
-          <Route element={<Revamp />}>
+          <Route element={<Revamp2 />}>
 
             <Route
               path="/port"
