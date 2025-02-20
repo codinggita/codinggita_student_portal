@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Loader2 } from "lucide-react"
 
 
 export function SignupForm({
@@ -16,14 +17,16 @@ export function SignupForm({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
 
   const { register } = authStore();
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents page refresh
-
+    setLoading(true)
     try {
-      const response = await register(name,email, password);
+      const response = await register(name, email, password);
       if (!response.success) {
         console.log(response.message);
       } else {
@@ -63,8 +66,13 @@ export function SignupForm({
           <Input id="password" type="password" onChange={(e) => setPassword(e.target.value)} value={password} required />
         </div>
 
-        <Button type="submit" className="w-full">
+        {/* <Button type="submit" className="w-full">
           SignUp
+        </Button> */}
+
+        <Button disabled={loading} className={loading ? "opacity-50 cursor-not-allowed" : ""}>
+          {loading ? <Loader2 className="animate-spin mr-2" /> : null}
+          {loading ? "Please wait" : "Submit"}
         </Button>
 
         <div
