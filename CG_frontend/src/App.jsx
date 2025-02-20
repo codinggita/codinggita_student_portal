@@ -12,6 +12,7 @@ import Revamp from './Modules/Revamp';
 import PortfolioSetup from './Modules/PortfolioPage/PortfolioSetup';
 import ProtectedRoute from './Modules/ProtectedRoute';
 import ProjectPage from './Modules/ProjectPage/ProjectPage';
+import { ProjectDetails } from './Modules/ProjectPage/ProjectDetails';
 
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
             />
 
             <Route path="/project" element={<ProjectPage />} />
+            <Route path="/project/:id" element={<ProjectDetails />} />
+
 
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />

@@ -37,7 +37,7 @@ function ProjectPage() {
         title: "AI Image Generator",
         description: "Machine learning-powered image generation tool",
         category: "AI/ML",
-        image: "https://images.unsplash.com/photo-1677442136019-21c1edcd845e?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&q=80&w=800",
         technologies: ["Python", "TensorFlow", "React"],
         link: "https://github.com"
     }]
@@ -49,13 +49,13 @@ function ProjectPage() {
         : projects.filter(project => project.category === selectedCategory);
 
     return (
-        <div className="min-h-screen bg-[#030712] ml-[288px] w-full">
+        <div className="min-h-screen bg-gray-900 ml-[288px] w-full">
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 {/* Hero Section */}
                 <div className="text-center mb-8">
-                    <h2 className="text-4xl font-bold text-[#9317ff] mb-4">CG Projects</h2>
-                    {/* <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <h2 className="text-4xl font-bold text-white mb-4">CG Projects</h2>
+                    {/* <p className="text-xl text-gray-400 max-w-2xl mx-auto">
                         Explore my latest work across various technologies and domains
                     </p> */}
                 </div>
@@ -67,9 +67,9 @@ function ProjectPage() {
                             key={category}
                             onClick={() => setSelectedCategory(category)}
                             className={`px-6 py-2 rounded-full text-sm font-medium transition-colors
-                ${selectedCategory === category
-                                    ? 'bg-[#7e22ce] text-white'
-                                    : 'bg-[#10141E] text-gray-600 hover:bg-gray-100'
+                  ${selectedCategory === category
+                                    ? 'bg-blue-600 text-white'
+                                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                                 }`}
                         >
                             {category}
