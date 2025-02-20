@@ -1,10 +1,17 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-import { Home, FolderKanban, User, Mail, Github, Linkedin, Settings } from 'lucide-react';
+import { NavLink, Outlet, Link } from 'react-router-dom';
+import { Home, FolderKanban, User, Mail, Github, Linkedin, CircleUserRound, SquareLibrary } from 'lucide-react';
 import textlogo from '../assets/text-logo.png'
+import { Button } from "@/components/ui/button";
 import booklogo from '../assets/book.png'
+import { authStore } from "../Stores/store.js"
+
 
 export function Revamp2() {
+
+  const { isAuthenticated, user } = authStore();
+
+
   return (
     <>
 
@@ -91,18 +98,8 @@ export function Revamp2() {
 
           <div className="absolute bottom-0 left-0 right-0 p-4">
             <div className="flex flex-col gap-4">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <Github size={20} className="min-w-[20px]" />
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  GitHub
-                </span>
-              </a>
-              <a
+
+              {/* <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -112,13 +109,39 @@ export function Revamp2() {
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                   LinkedIn
                 </span>
-              </a>
-              <button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200">
-                <Settings size={20} className="min-w-[20px]" />
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  Settings
-                </span>
-              </button>
+              </a> */}
+
+
+              <Link to={'/dashboard'}>
+                <button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200 pb-2">
+                  <SquareLibrary size={25} className="min-w-[30px]" />
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Dashboard
+                  </span>
+                </button>
+              </Link>
+
+
+
+              {isAuthenticated ?
+                (<button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200">
+                  <CircleUserRound size={25} className="min-w-[30px]" />
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Jenil Savalia
+                  </span>
+                </button>)
+                : (
+                  <Link to={'/login'}>
+                    <button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200">
+                      <CircleUserRound size={25} className="min-w-[30px]" />
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                        Login
+                      </span>
+                    </button>
+                  </Link>
+                )}
+
+
             </div>
           </div>
         </div>
