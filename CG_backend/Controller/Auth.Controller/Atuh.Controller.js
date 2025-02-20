@@ -23,7 +23,7 @@ export const registerUser = async (req, res) => {
         await user.save();
 
         // Assuming generateToken is a method on the User model
-        res.json({ token: user.generateToken(), user: user });
+        res.json({ token: user.generateToken(), User: user });
 
     } catch (error) {
         console.error(error);
@@ -44,7 +44,7 @@ export const loginUser = async (req, res) => {
             return res.status(401).json({ error: "Invalid credentials" });
         }
 
-        res.json({ token: user.generateToken(), user: user });
+        res.json({ token: user.generateToken(), User: user });
 
     } catch (error) {
         console.error("Login error:", error); // Logs error to console
