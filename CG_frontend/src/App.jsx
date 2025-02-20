@@ -18,9 +18,8 @@ function App() {
   return (
     <>
       <Router>
-        {/* <Navbar /> */}
         <Routes>
-          <Route path="/cg" element={<Revamp />} />
+          {/* <Route path="/cg" element={<Revamp />} /> */}
 
           {/* Protected Route Wrapping Portfolio */}
           <Route
@@ -32,13 +31,15 @@ function App() {
             }
           />
 
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route element={<Revamp />}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
 
-          <Route path="/event" element={<Events />} />
-          <Route path="/activity" element={<ActivityPage />} />
-          <Route path="/newsletter" element={<Newsletter />} />
+            <Route path="/event" element={<Events />} />
+            <Route path="/activity" element={<ActivityPage />} />
+            <Route path="/newsletter" element={<Newsletter />} />
+          </Route>
         </Routes>
       </Router>
     </>

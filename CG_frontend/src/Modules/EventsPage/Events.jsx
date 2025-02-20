@@ -11,6 +11,7 @@ import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
 import { AdvancedImage } from '@cloudinary/react';
 import Logo_Bg from '../../assets/Logo_Bg.png';
 import loadGif from '../../assets/Rolling@1x-1.0s-200px-200px.gif'
+import EventCard from '../EventsPage/EventCard'
 
 const Events = () => {
 
@@ -38,62 +39,73 @@ const Events = () => {
 
 
     return (
+        // <>
+        //     {/* For Screens of Size Small then lg */}
+        //     <div className='lg:hidden container m-auto mt-10 w-[50%]'>
+        //         {Loading ? (
+        //             null
+        //         ) : (
+        //             data.map((item, index) => (
+        //                 <div key={item._id} className="flex flex-col items-center max-[372px]:scale-82 ">
+        //                     {/* Event Card */}
+        //                     <Left_EventCard cardData={item} className="ml-8" />
+        //                 </div>
+        //             ))
+        //         )}
+        //     </div>
+
+
+
+
+        //     {/* For Screens of Lg and larger */}
+        //     {Loading ? <img src="loadGif" alt="" /> : (
+        //         <div className="relative flex justify-center mt-45 max-lg:hidden">
+        //             {/* Vertical Line */}
+        //             <div className="absolute h-[1300px] w-[1.5px] bg-gray-300"></div>
+
+        //             {/* Event Cards Container */}
+        //             <div className="relative flex flex-col gap-8 pt-5">
+        //                 {Loading ? (
+        //                     null
+        //                 ) : (
+        //                     data.map((item, index) => (
+        //                         index % 2 == 0 ? (<div key={item._id} className="relative flex  rounded-sm">
+        //                             {/* Event Card */}
+        //                             <Left_EventCard cardData={item} className="ml-8" />
+        //                         </div>) : null
+        //                     ))
+        //                 )}
+        //             </div>
+
+        //             <div className="relative flex flex-col gap-8 left-0 pt-25">
+        //                 {Loading ? (
+        //                     null
+        //                 ) : (
+        //                     data.map((item, index) => (
+        //                         index % 2 !== 0 ? (<div key={item._id} className="relative flex">
+        //                             {/* Event Card */}
+        //                             <Right_EventCard cardData={item} className="ml-8" />
+        //                         </div>) : null
+        //                     ))
+        //                 )}
+        //             </div>
+        //         </div>
+        //     )}
+
+        // </>
+
         <>
-            {/* For Screens of Size Small then lg */}
-            <div className='lg:hidden container m-auto mt-10'>
-                {Loading ? (
-                    null
-                ) : (
-                    data.map((item, index) => (
-                        <div key={item._id} className="flex flex-col items-center max-[372px]:scale-82 ">
-                            {/* Event Card */}
-                            <Left_EventCard cardData={item} className="ml-8" />
+
+            <div className='ml-[288px] bg-[#171c34] w-fit flex flex-wrap justify-center pt-10 h-screen'>
+
+                {Loading ? null : (
+                    data.map((item) => (
+                        <div className='m-3'>
+                            <EventCard cardData={item} />
                         </div>
                     ))
                 )}
-            </div>
 
-
-
-
-            {/* For Screens of Lg and larger */}
-            {Loading ? <img src="loadGif" alt="" /> : (
-                <div className="relative flex justify-center mt-45 max-lg:hidden">
-                    {/* Vertical Line */}
-                    <div className="absolute h-[1300px] w-[1.5px] bg-gray-300"></div>
-
-                    {/* Event Cards Container */}
-                    <div className="relative flex flex-col gap-8 pt-5">
-                        {Loading ? (
-                            null
-                        ) : (
-                            data.map((item, index) => (
-                                index % 2 == 0 ? (<div key={item._id} className="relative flex  rounded-sm">
-                                    {/* Event Card */}
-                                    <Left_EventCard cardData={item} className="ml-8" />
-                                </div>) : null
-                            ))
-                        )}
-                    </div>
-
-                    <div className="relative flex flex-col gap-8 left-0 pt-25">
-                        {Loading ? (
-                            null
-                        ) : (
-                            data.map((item, index) => (
-                                index % 2 !== 0 ? (<div key={item._id} className="relative flex">
-                                    {/* Event Card */}
-                                    <Right_EventCard cardData={item} className="ml-8" />
-                                </div>) : null
-                            ))
-                        )}
-                    </div>
-                </div>
-            )}
-
-
-            <div className='flex bg-amber-300 justify-center mt-10'>
-                Pagination
             </div>
 
         </>
