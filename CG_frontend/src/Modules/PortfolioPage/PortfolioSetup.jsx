@@ -1,39 +1,25 @@
-import { useState } from "react";
+import React from "react";
+import { usePortfolioStore } from "../../Stores/store.js";
+import StepOne from "./StepOne";
+import StepTwo from "./StepTwo"; // You'll create this next
+import StepThree from "./StepThree"; // You'll create this next
+import StepFour from "./StepFour"; // You'll create this next
 
 const MultiStepForm = () => {
-    const [step, setStep] = useState(1); // Track current step
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        address: "",
-        city: "",
-    });
+  const { step } = usePortfolioStore();
 
-    // Handle input change
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    // Next Step
-    const nextStep = () => setStep(step + 1);
-    // Previous Step
-    const prevStep = () => setStep(step - 1);
-    // Submit Form
-    const handleSubmit = () => {
-        console.log("Form Submitted:", formData);
-    };
-
-    return (
-        <div className="p-6 max-w-md mx-auto bg-white shadow-md rounded">
-            {step === 1 && (
-                <StepOne formData={formData} handleChange={handleChange} nextStep={nextStep} />
-            )}
-            {step === 2 && (
-                <StepTwo formData={formData} handleChange={handleChange} nextStep={nextStep} prevStep={prevStep} />
-            )}
-            {step === 3 && (
-                <StepThree formData={formData} prevStep={prevStep} handleSubmit={handleSubmit} />
-            )}
+  return (
+    <>
+      <div className="ml-[288px] bg-[#171c34] w-full h-screen">
+        <div className="max-w-2xl mx-auto mt-20 p-6  text-white rounded-lg">
+          {step === 1 && <StepOne />}
+          {step === 2 && <StepTwo />}
+          {step === 3 && <StepThree />}
+          {step === 4 && <StepFour />}
         </div>
-    );
+      </div>
+    </>
+  );
 };
+
+export default MultiStepForm;

@@ -1,13 +1,13 @@
 import React from "react";
 import { usePortfolioStore } from "../../Stores/store.js";
-import { Button } from "@/components/ui/button"; // Assuming you're using ShadCN
+import { Button } from "@/components/ui/button";
 
-const StepTwo = () => {
+const StepFour = () => {
   const { formData, updateFormData, nextStep } = usePortfolioStore();
 
   return (
     <div className="p-6 bg-gray-900 text-white rounded-lg">
-      <h2 className="text-xl font-semibold mb-4">Step 2: xyz</h2>
+      <h2 className="text-xl font-semibold mb-4">Step 4: xyz</h2>
 
       {/* Profile Image Upload */}
       <div className="mb-4">
@@ -79,11 +79,11 @@ const StepTwo = () => {
 
       <div className="flex justify-end">
         <Button onClick={nextStep} className="bg-purple-600 hover:bg-purple-700">
-          Next Step
+          Submit
         </Button>
       </div>
     </div>
   );
 };
 
-export default StepTwo;
+export default StepFour;

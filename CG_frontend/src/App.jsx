@@ -9,8 +9,10 @@ import SignUp from './Modules/Authentication/SignUp';
 import LandingPage from './Modules/LandingPage/LandingPage';
 import Newsletter from './Modules/NewsletterPage/Newsletter';
 import Revamp from './Modules/Revamp';
-import Portfolio from './Modules/Portfolio';
+import PortfolioSetup from './Modules/PortfolioPage/PortfolioSetup';
 import ProtectedRoute from './Modules/ProtectedRoute';
+import ProjectPage from './Modules/ProjectPage/ProjectPage';
+import { ProjectDetails } from './Modules/ProjectPage/ProjectDetails';
 
 
 function App() {
@@ -18,27 +20,35 @@ function App() {
   return (
     <>
       <Router>
-        {/* <Navbar /> */}
         <Routes>
-          <Route path="/cg" element={<Revamp />} />
+          {/* <Route path="/cg" element={<Revamp />} /> */}
 
           {/* Protected Route Wrapping Portfolio */}
-          <Route
-            path="/cg/port"
-            element={
-              <ProtectedRoute>
-                <Portfolio />
-              </ProtectedRoute>
-            }
-          />
 
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          
-          <Route path="/event" element={<Events />} />
-          <Route path="/activity" element={<ActivityPage />} />
-          <Route path="/newsletter" element={<Newsletter />} />
+
+          <Route element={<Revamp />}>
+
+            <Route
+              path="/port"
+              element={
+                <ProtectedRoute>
+                  <PortfolioSetup />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route path="/project" element={<ProjectPage />} />
+            <Route path="/project/:id" element={<ProjectDetails />} />
+
+
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+
+            <Route path="/event" element={<Events />} />
+            <Route path="/activity" element={<ActivityPage />} />
+            <Route path="/newsletter" element={<Newsletter />} />
+          </Route>
         </Routes>
       </Router>
     </>

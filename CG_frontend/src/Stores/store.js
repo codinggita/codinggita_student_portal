@@ -57,3 +57,56 @@ export const authStore = create((set, get) => ({
         set({ user: null, token: null, isAuthenticated: false });
     }
 }));
+
+
+
+export const usePortfolioStore = create((set) => ({
+    step: 1,
+    formData: {
+        Name: "",
+        Email: "",
+        ProfileImage: "",
+        Socials: {},
+        Location: "",
+        Aboutme: "",
+        Skills: [{ Skill: "", Rating: "" }],
+        Education: [{ nameofInstitiute: "", course: "", year: "" }],
+        Internships: [{ Company: "", Role: "", year: "", Description: "" }],
+        Certificates: [],
+        Projects: [{ Title: "", Github: "", Figma: "", Documentation: "", Description: "", Images: [] }]
+    },
+
+    // Function to update form data
+    updateFormData: (field, value) =>
+        set((state) => ({
+            formData: {
+                ...state.formData,
+                [field]: value,
+            },
+        })),
+
+    // Function to go to the next step
+    nextStep: () => set((state) => ({ step: state.step + 1 })),
+
+    // Function to go to the previous step
+    prevStep: () => set((state) => ({ step: state.step - 1 })),
+
+    // Reset form
+    resetForm: () =>
+        set({
+            step: 1,
+            formData: {
+                Name: "",
+                Email: "",
+                ProfileImage: "",
+                Socials: {},
+                Location: "",
+                Aboutme: "",
+                Skills: [{ Skill: "", Rating: "" }],
+                Education: [{ nameofInstitiute: "", course: "", year: "" }],
+                Internships: [{ Company: "", Role: "", year: "", Description: "" }],
+                Certificates: [],
+                Projects: [{ Title: "", Github: "", Figma: "", Documentation: "", Description: "", Images: [] }]
+            },
+        }),
+}));
