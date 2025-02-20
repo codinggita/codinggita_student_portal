@@ -13,6 +13,7 @@ import PortfolioSetup from './Modules/PortfolioPage/PortfolioSetup';
 import ProtectedRoute from './Modules/ProtectedRoute';
 import ProjectPage from './Modules/ProjectPage/ProjectPage';
 import { ProjectDetails } from './Modules/ProjectPage/ProjectDetails';
+import HeroPortfolio from './Modules/ProjectPage/HeroPortfolio';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="/myport" element={<HeroPortfolio />} />
 
             <Route path="/project" element={<ProjectPage />} />
             <Route path="/project/:id" element={<ProjectDetails />} />

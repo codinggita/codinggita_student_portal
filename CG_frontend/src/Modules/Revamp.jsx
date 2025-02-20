@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import img from "../assets/CG_Logo.png";
 import { authStore } from "../Stores/store.js"
 import { Link, Outlet } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 
 const Revamp = () => {
@@ -10,9 +11,18 @@ const Revamp = () => {
   const { isAuthenticated, user, token, Temp } = authStore();
   console.log("Current Zustand State:", authStore.getState());
 
+  const menuItems = [
+    { Title: "Portfolio", Link: "port" },
+    { Title: "CG Community", Link: "cg-community" },
+    { Title: "Resources", Link: "resources" },
+    { Title: "Events", Link: "event" },
+    { Title: "Projects", Link: "project" }
+  ];
+
   return (
 
     <>
+
       <div className="flex">
         <div className="bg-[#101426] h-screen flex w-[300px] fixed rounded-r-2xl">
 
@@ -33,14 +43,21 @@ const Revamp = () => {
             <div className="p-3 flex flex-col flex-1 justify-between mt-5">
               {/* Navigation Links */}
               <div>
-                {["Portfolio", "CG Community", "Resources", "Events", "Portfolio", "Projects"].map((item, index) => (
-                  <Button
+                {menuItems.map((item, index) => (
+                  <NavLink
                     key={index}
-                    variant="ghost"
-                    className="text-white hover:bg-[#923dee2b] hover:text-white w-full mb-4"
+                    to={item.Link}
+                    className={({ isActive }) =>
+                      isActive ? "" : ""
+                    }
                   >
-                    {item}
-                  </Button>
+                    <Button
+                      variant="ghost"
+                      className="text-white hover:bg-[#923dee2b] hover:text-white w-full mb-4"
+                    >
+                      {item.Title}
+                    </Button>
+                  </NavLink>
                 ))}
               </div>
 
