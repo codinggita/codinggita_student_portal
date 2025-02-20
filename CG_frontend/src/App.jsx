@@ -11,6 +11,7 @@ import Newsletter from './Modules/NewsletterPage/Newsletter';
 import Revamp from './Modules/Revamp';
 import PortfolioSetup from './Modules/PortfolioPage/PortfolioSetup';
 import ProtectedRoute from './Modules/ProtectedRoute';
+import ProjectPage from './Modules/ProjectPage/ProjectPage';
 
 
 function App() {
@@ -22,16 +23,21 @@ function App() {
           {/* <Route path="/cg" element={<Revamp />} /> */}
 
           {/* Protected Route Wrapping Portfolio */}
-          <Route
-            path="/cg/port"
-            element={
-              <ProtectedRoute>
-                <PortfolioSetup />
-              </ProtectedRoute>
-            }
-          />
+
 
           <Route element={<Revamp />}>
+
+            <Route
+              path="/port"
+              element={
+                <ProtectedRoute>
+                  <PortfolioSetup />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route path="/project" element={<ProjectPage />} />
+
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
