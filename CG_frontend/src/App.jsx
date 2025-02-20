@@ -9,7 +9,7 @@ import SignUp from './Modules/Authentication/SignUp';
 import LandingPage from './Modules/LandingPage/LandingPage';
 import Newsletter from './Modules/NewsletterPage/Newsletter';
 import Revamp from './Modules/Revamp';
-import Portfolio from './Modules/Portfolio';
+import PortfolioSetup from './Modules/PortfolioPage/PortfolioSetup';
 import ProtectedRoute from './Modules/ProtectedRoute';
 
 
@@ -27,7 +27,7 @@ function App() {
             path="/cg/port"
             element={
               <ProtectedRoute>
-                <Portfolio />
+                <PortfolioSetup />
               </ProtectedRoute>
             }
           />
@@ -35,7 +35,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          
+
           <Route path="/event" element={<Events />} />
           <Route path="/activity" element={<ActivityPage />} />
           <Route path="/newsletter" element={<Newsletter />} />
