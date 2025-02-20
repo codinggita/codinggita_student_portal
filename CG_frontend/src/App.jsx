@@ -9,13 +9,13 @@ import SignUp from './Modules/Authentication/SignUp';
 import LandingPage from './Modules/LandingPage/LandingPage';
 import Newsletter from './Modules/NewsletterPage/Newsletter';
 import Revamp from './Modules/Revamp';
-import {Revamp2} from './Modules/Revamp2';
+import { Revamp2 } from './Modules/Revamp2';
 import PortfolioSetup from './Modules/PortfolioPage/PortfolioSetup';
 import ProtectedRoute from './Modules/ProtectedRoute';
 import ProjectPage from './Modules/ProjectPage/ProjectPage';
 import { ProjectDetails } from './Modules/ProjectPage/ProjectDetails';
 import HeroPortfolio from './Modules/ProjectPage/HeroPortfolio';
-
+import NotFound from './Modules/PageNotFound'
 
 function App() {
 
@@ -51,6 +51,10 @@ function App() {
             <Route path="/event" element={<Events />} />
             <Route path="/activity" element={<ActivityPage />} />
             <Route path="/newsletter" element={<Newsletter />} />
+
+
+            <Route path='*' element={<NotFound />} />
+
           </Route>
         </Routes>
       </Router>
