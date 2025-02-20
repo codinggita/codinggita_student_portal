@@ -1,9 +1,14 @@
 import React from 'react'
+import { Loader2 } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
 
 const Revamp = () => {
   return (
 
-<div>Revamp Bolte</div>
+    <div className='mt-48'>
+      Revampo Bolte
+    </div>
 
   )
 }
