@@ -10,7 +10,7 @@ const MultiStepForm = () => {
 
   return (
     <>
-      <div className="ml-[288px] bg-[#171c34] w-full h-screen">
+      <div className="bg-[#171c34] w-full h-screen">
         <div className="max-w-2xl mx-auto mt-20 p-6  text-white rounded-lg">
           {step === 1 && <StepOne />}
           {step === 2 && <StepTwo />}

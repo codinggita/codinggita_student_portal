@@ -37,7 +37,7 @@ export function Revamp2() {
             </NavLink>
 
             <NavLink
-              to="/projects"
+              to="/project"
               className={({ isActive }) => `
             flex items-center gap-4 px-4 py-3 transition-colors duration-200
             ${isActive ? 'bg-gray-700 text-[#7e22ce]' : 'text-gray-400 hover:bg-gray-700 hover:text-white'}
@@ -50,7 +50,7 @@ export function Revamp2() {
             </NavLink>
 
             <NavLink
-              to="/about"
+              to="/event"
               className={({ isActive }) => `
             flex items-center gap-4 px-4 py-3 transition-colors duration-200
             ${isActive ? 'bg-gray-700 text-[#7e22ce]' : 'text-gray-400 hover:bg-gray-700 hover:text-white'}
@@ -58,12 +58,25 @@ export function Revamp2() {
             >
               <User size={20} className="min-w-[20px]" />
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                About
+                Events
               </span>
             </NavLink>
 
             <NavLink
-              to="/contact"
+              to="/event"
+              className={({ isActive }) => `
+            flex items-center gap-4 px-4 py-3 transition-colors duration-200
+            ${isActive ? 'bg-gray-700 text-[#7e22ce]' : 'text-gray-400 hover:bg-gray-700 hover:text-white'}
+          `}
+            >
+              <User size={20} className="min-w-[20px]" />
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                Resources
+              </span>
+            </NavLink>
+
+            <NavLink
+              to="/port"
               className={({ isActive }) => `
             flex items-center gap-4 px-4 py-3 transition-colors duration-200
             ${isActive ? 'bg-gray-700 text-[#7e22ce]' : 'text-gray-400 hover:bg-gray-700 hover:text-white'}
@@ -71,7 +84,7 @@ export function Revamp2() {
             >
               <Mail size={20} className="min-w-[20px]" />
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                Contact
+                Portfolio
               </span>
             </NavLink>
           </nav>

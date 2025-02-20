@@ -64,7 +64,7 @@ const HeroPortfolio = () => {
           onClose={() => setIsEditing(false)}
           onSave={handleSave} />
 
-        : (<div className="min-h-screen bg-gray-900 text-white p-6 ml-[288px] w-full pt-12">
+        : (<div className="min-h-screen bg-gray-900 text-white p-6 w-full pt-12">
           {/* Profile Section */}
           <div className="max-w-3xl mx-auto bg-gray-800 p-6 shadow-lg rounded-lg text-center relative">
             <button className="absolute top-3 right-3 text-gray-400 hover:text-white"

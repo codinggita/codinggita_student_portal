@@ -49,7 +49,7 @@ function ProjectPage() {
         : projects.filter(project => project.category === selectedCategory);
 
     return (
-        <div className="min-h-screen bg-gray-900 ml-[288px] w-full">
+        <div className="min-h-screen bg-gray-900 w-full">
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 {/* Hero Section */}
