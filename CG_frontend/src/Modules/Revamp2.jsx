@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet, Link } from 'react-router-dom';
-import { Home, FolderKanban, User, Mail, Github, Linkedin, CircleUserRound, SquareLibrary } from 'lucide-react';
+import { Home, FolderKanban, User, Mail, Github, Linkedin, CircleUserRound, SquareLibrary, Award, BookOpenText } from 'lucide-react';
 import textlogo from '../assets/text-logo.png'
 import { Button } from "@/components/ui/button";
 import booklogo from '../assets/book.png'
@@ -70,15 +70,27 @@ export function Revamp2() {
             </NavLink>
 
             <NavLink
-              to="/event"
+              to="/resources"
               className={({ isActive }) => `
             flex items-center gap-4 px-4 py-3 transition-colors duration-200
             ${isActive ? 'bg-gray-700 text-[#7e22ce]' : 'text-gray-400 hover:bg-gray-700 hover:text-white'}
           `}
             >
-              <User size={20} className="min-w-[20px]" />
+              <BookOpenText size={20} className="min-w-[20px]" />
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                 Resources
+              </span>
+            </NavLink>
+            <NavLink
+              to="/tracker"
+              className={({ isActive }) => `
+            flex items-center gap-4 px-4 py-3 transition-colors duration-200
+            ${isActive ? 'bg-gray-700 text-[#7e22ce]' : 'text-gray-400 hover:bg-gray-700 hover:text-white'}
+          `}
+            >
+              <Award size={20} className="min-w-[20px]" />
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                Leetcode Tracker
               </span>
             </NavLink>
 
