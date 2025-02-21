@@ -17,6 +17,7 @@ import { ProjectDetails } from './Modules/ProjectPage/ProjectDetails';
 import HeroPortfolio from './Modules/ProjectPage/HeroPortfolio';
 import NotFound from './Modules/PageNotFound'
 import Dashboard from './Modules/Dashboard/Dashboard';
+import Resources from './Modules/Resources/Resources';
 
 function App() {
 
@@ -43,6 +44,8 @@ function App() {
 
             <Route path="/project" element={<ProjectPage />} />
             <Route path="/project/:id" element={<ProjectDetails />} />
+            <Route path="/event" element={<Events />} />
+            <Route path="/resources" element={<Resources />} />
 
 
             <Route path="/" element={<LandingPage />} />
@@ -50,7 +53,6 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard />} />
 
-            <Route path="/event" element={<Events />} />
 
 
             <Route path="/activity" element={<ActivityPage />} />
