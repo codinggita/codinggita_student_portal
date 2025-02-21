@@ -18,6 +18,7 @@ import HeroPortfolio from './Modules/ProjectPage/HeroPortfolio';
 import NotFound from './Modules/PageNotFound'
 import Dashboard from './Modules/Dashboard/Dashboard';
 import Resources from './Modules/Resources/Resources';
+import LeetTracker from './Modules/LeetcodeTracker/LeetTracker';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
             <Route path="/project/:id" element={<ProjectDetails />} />
             <Route path="/event" element={<Events />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/tracker" element={<LeetTracker />} />
 
 
             <Route path="/" element={<LandingPage />} />
