@@ -7,6 +7,7 @@ dotenv.config();
 
 
 const userSchema = new mongoose.Schema({
+
     name: { type: String, required: true },
 
     email: { type: String, required: true, unique: true },
@@ -20,14 +21,12 @@ const userSchema = new mongoose.Schema({
         ref: 'Portfolio',
     },
 
-    Group_id: {
-        type: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Portfolio',
-        }]
-    },
+    groups: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Group' // Reference to the 'Group' model
+    }],
 
-    Batch: { type: String, required: true },
+    // Batch: { type: String, required: true },
 
 })
 

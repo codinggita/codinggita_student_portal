@@ -1,33 +1,23 @@
 import mongoose from 'mongoose';
 
-
-
-
 const groupSchema = new mongoose.Schema({
-
-    group_id: {
-        type: _id,
-        required: true
-    },
-
     group_name: {
         type: String,
         required: true
     },
-
-    users: {
-        type: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'user',
-        }]
+    description: {
+        type: String,
+        required: true
     },
-
+    users: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User', // Reference to the 'User' model
+    }],
     created_by: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user',
+        ref: 'User', // Reference to the 'User' model
+        required: true
     }
+}, { timestamps: true }); // Add timestamps for createdAt and updatedAt
 
-})
-
-
-export const User = mongoose.model('group', groupSchema)
+export const Group = mongoose.model('Group', groupSchema);
