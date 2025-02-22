@@ -4,7 +4,7 @@ import { User } from '../../Model/User.Model.js'
 // Register a User
 export const registerUser = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, role } = req.body;
 
         // Validate required fields
         if (!name || !email || !password) {
@@ -18,12 +18,12 @@ export const registerUser = async (req, res) => {
         }
 
 
-        const user = new User({ name, email, password });
+        const user = new User({ name, email, password, role });
 
         await user.save();
 
         // Assuming generateToken is a method on the User model
-        res.json({ token: user.generateToken(), User: user });
+        res.json({ token: user.generateToken({ name, email, password, role }), User: user });
 
     } catch (error) {
         console.error(error);

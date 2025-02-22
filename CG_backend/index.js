@@ -29,6 +29,7 @@ const connectDB = async () => {
 
 connectDB();
 
+
 // Authenntication Router
 app.use('/auth', AuthRoute)
 

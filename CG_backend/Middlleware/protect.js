@@ -1,13 +1,28 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
+import Access from "../AuthSettings.js";
 
-const protect = (req, res, next) => {
+const protect = (role) => (req, res, next) => {
     let token = req.headers.authorization;
 
-    if (!token) return res.status(401).json({ error: "Not authorized" });
+    // Check if token exists and starts with "Bearer"
+    if (!token || !token.startsWith("Bearer ")) {
+        return res.status(401).json({ error: "Not authorized, no token" });
+    }
 
     try {
-        const decoded = jwt.verify(token.split(" ")[1], process.env.JWT_SECRET);
+        // Extract and verify the token
+        token = token.split(" ")[1];
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        // Attach user data to request
         req.user = decoded;
+        console.log(decoded)
+
+        // Check role if required
+        if (!Access.Portfolio.includes(req.user.role)) {
+            return res.status(403).json({ error: "Access denied, insufficient permissions" });
+        }
+
         next();
     } catch (error) {
         res.status(401).json({ error: "Invalid token" });
