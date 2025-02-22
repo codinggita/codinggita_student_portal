@@ -18,7 +18,17 @@ const userSchema = new mongoose.Schema({
     Portfolio_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Portfolio',
-    }
+    },
+
+    Group_id: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Portfolio',
+        }]
+    },
+
+    Batch: { type: String, required: true },
+
 })
 
 // Hash password before saving
