@@ -7,14 +7,16 @@ const PortfolioRoute = express.Router()
 
 
 
-PortfolioRoute.post("/", postPortfolio)
+
+PortfolioRoute.post("/", protect("Portfolio"), postPortfolio)
+
 
 // Get USer Details with portfolio
-PortfolioRoute.get("/", protect, getUser)
+PortfolioRoute.get("/", protect("Portfolio"), getUser)
 
 
 // this put request adds portfolio id to refer user object
-PortfolioRoute.put("/", EditUser)
+PortfolioRoute.put("/", protect("Portfolio"), EditUser)
 
 
 
