@@ -6,6 +6,7 @@ import EventRouter from './Routes/EventRoute.js'
 import ActivityRouter from './Routes/ActivityRoute.js'
 import PortfolioRoute from './Routes/PortfolioRoute.js'
 import AuthRoute from './Routes/AuthRoute.js'
+import DashboardRoute from './Routes/DashboardRoute.js';
 
 // Configure dotenv
 dotenv.config();
@@ -42,7 +43,8 @@ app.use('/students/activity', ActivityRouter)
 // Portfolio Router
 app.use('/portfolio', PortfolioRoute)
 
-
+// Dashboard Router
+app.use('/dashboard', DashboardRoute)
 
 
 app.listen(PORT, () => {

@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
 import Access from "../AuthSettings.js";
 
-const protect = (role) => (req, res, next) => {
+const protect = (section) => (req, res, next) => {
+    
     let token = req.headers.authorization;
 
     // Check if token exists and starts with "Bearer"
@@ -16,10 +17,10 @@ const protect = (role) => (req, res, next) => {
 
         // Attach user data to request
         req.user = decoded;
-        console.log(decoded)
+        // console.log(decoded)
 
         // Check role if required
-        if (!Access.Portfolio.includes(req.user.role)) {
+        if (!Access[section].includes(req.user.role)) {
             return res.status(403).json({ error: "Access denied, insufficient permissions" });
         }
 
