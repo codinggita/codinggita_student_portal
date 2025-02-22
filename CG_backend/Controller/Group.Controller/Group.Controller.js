@@ -1,18 +1,25 @@
 import { Group } from '../../Model/Group.Model.js'
 import { User } from '../../Model/User.Model.js'
+import mongoose from 'mongoose'
 
 
 
 export const getGroup = async (req, res) => {
 
     const { groupID } = req.params
+    // const groupID = "67b9a3afcfcab0e89cc9ae8e"
+
+    // Validate groupID
+    if (!mongoose.Types.ObjectId.isValid(groupID)) {
+        return res.status(400).json({ error: "Invalid group ID" });
+    }
 
     try {
 
         // Step 1: Find the group by ID and populate the 'users' field
         const group = await Group.findById(groupID).populate({
             path: 'users',
-            select: 'name email' // Include only specific fields from the User model
+            select: 'name email'
         });
 
         // Step 2: Check if the group exists
@@ -72,12 +79,6 @@ export const addUser_Group = async (req, res) => {
             return res.status(404).json({ error: "Group not found" });
         }
 
-        // // Step 2: Find all users
-        // const users = await User.find({ _id: { $in: userIds } });
-        // if (users.length !== userIds.length) {
-        //     return res.status(404).json({ error: "One or more users not found" });
-        // }
-
         // Step 3: Filter out users already in the group
         const newUserIds = userIds.filter(userId => !group.users.includes(userId));
 
@@ -101,7 +102,7 @@ export const addUser_Group = async (req, res) => {
 
     } catch (error) {
         console.log("Error:", error);
-        res.status(500).json({ error: "Failed to add Group" });
+        res.status(500).json({ error: "Failed to add User" });
     }
 };
 
@@ -125,7 +126,7 @@ export const deleteUsersFromGroup = async (req, res) => {
         }
 
         // Step 3: Remove users from the group
-        group.users = group.users.filter(id => !userIds.includes(id));
+        group.users = group.users.filter(id => !userIds.includes(id.toString()));
         await group.save();
 
         // Step 4: Remove the group from each user

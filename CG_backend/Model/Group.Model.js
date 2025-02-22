@@ -11,7 +11,7 @@ const groupSchema = new mongoose.Schema({
     },
     users: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', // Reference to the 'User' model
+        ref: 'user', // Reference to the 'User' model
     }],
     created_by: {
         type: mongoose.Schema.Types.ObjectId,
