@@ -7,9 +7,14 @@ const DashboardRoute = express.Router()
 
 
 
-DashboardRoute.get("/admin", protect("AdminPanel"), getDashboardAdmin)
-DashboardRoute.get("/tutor", protect("TutorDashboard"), getDashboardTutor)
-DashboardRoute.get("/student", protect("StudentDashboard"), getDashboardStudent)
+// Admin Dashboard (Only Admins)
+DashboardRoute.get("/admin", protect("LevelOne"), getDashboardAdmin);
+
+// Tutor Dashboard (Admins & Tutors)
+DashboardRoute.get("/tutor", protect("LevelTwo"), getDashboardTutor);
+
+// Student Dashboard (Admins, Tutors & Students)
+DashboardRoute.get("/student", protect("LevelThree"), getDashboardStudent);
 
 
 
