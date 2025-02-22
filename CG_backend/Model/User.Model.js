@@ -13,6 +13,8 @@ const userSchema = new mongoose.Schema({
 
     password: { type: String, required: true },
 
+    role: { type: String, required: true },
+
     Portfolio_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Portfolio',
@@ -33,8 +35,8 @@ userSchema.methods.comparePassword = async function (enteredPassword) {
 
 
 // Generate JWT
-userSchema.methods.generateToken = function () {
-    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, { expiresIn: "48h" });
+userSchema.methods.generateToken = function (Data) {
+    return jwt.sign({ id: this._id, ...Data }, process.env.JWT_SECRET, { expiresIn: "48h" });
 };
 
 export const User = mongoose.model('user', userSchema)

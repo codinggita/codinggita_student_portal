@@ -32,8 +32,8 @@ const LandingPage = () => {
 
             {/* Fun Message */}
             <div className="space-y-4">
-              <h2 className="text-2xl font-semibold text-gray-300">
-                {/* Oops! Looks like you've ventured into the void */}
+              <h2 className="text-2xl font-semibold text-gray-50">
+                Wait Training AI Agents!!
               </h2>
               <p className="text-gray-400 max-w-md mx-auto">
                 {/* The page you're looking for has been sucked into a black hole.
