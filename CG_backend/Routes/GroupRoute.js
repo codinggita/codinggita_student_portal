@@ -1,17 +1,20 @@
 import express from 'express'
 import protect from '../Middlleware/protect.js'
-import { postGroup, addUser_Group, deleteUsersFromGroup, getGroup } from '../Controller/Group.Controller/Group.Controller.js';
+import { AddNewGroup, addUsersToGroup, deleteUsersFromGroup, getGroup, AddTaskByGroupId } from '../Controller/Group.Controller/Group.Controller.js';
 
 
 const GroupRoute = express.Router()
 
 GroupRoute.get("/:groupID", getGroup)
 
-GroupRoute.post("/", postGroup);
+GroupRoute.post("/", AddNewGroup);
 
-GroupRoute.put("/", addUser_Group);
+GroupRoute.put("/", addUsersToGroup);
 
 GroupRoute.delete("/", deleteUsersFromGroup);
 
+
+// Task Routes
+GroupRoute.post("/task/:groupID", AddTaskByGroupId);
 
 export default GroupRoute

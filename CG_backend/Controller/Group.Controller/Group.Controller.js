@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 
 
 
+// Get a group from ID
 export const getGroup = async (req, res) => {
 
     const { groupID } = req.params
@@ -36,9 +37,8 @@ export const getGroup = async (req, res) => {
     }
 };
 
-
-
-export const postGroup = async (req, res) => {
+// Create A new Group
+export const AddNewGroup = async (req, res) => {
     const { group_name, UserID_Array, created_by, description } = req.body;
     try {
 
@@ -66,8 +66,8 @@ export const postGroup = async (req, res) => {
     }
 };
 
-
-export const addUser_Group = async (req, res) => {
+// Add users to Group
+export const addUsersToGroup = async (req, res) => {
 
     const { groupId, userIds } = req.body;
 
@@ -106,8 +106,7 @@ export const addUser_Group = async (req, res) => {
     }
 };
 
-
-
+// Delete Users From Group 
 export const deleteUsersFromGroup = async (req, res) => {
     const { groupId, userIds } = req.body;
     try {
@@ -145,3 +144,46 @@ export const deleteUsersFromGroup = async (req, res) => {
 };
 
 
+
+// Task Controllers
+
+
+// Add Task to group by ID
+
+export const AddTaskByGroupId = async (req, res) => {
+
+    const { groupID } = req.params
+    // const groupID = "67b9a3afcfcab0e89cc9ae8e"
+    const { task } = req.body;
+
+    // Validate groupID
+    if (!mongoose.Types.ObjectId.isValid(groupID)) {
+        return res.status(400).json({ error: "Invalid group ID" });
+    }
+
+    // Validate the task object
+    if (!task || !task.task_title || !task.due_date || !task.Priority || !task.created_by) {
+        return res.status(400).json({ error: "Invalid task data" });
+    }
+
+
+    try {
+
+        const group = await Group.findById(groupID);
+        if (!group) {
+            return res.status(404).json({ error: "Group not found" });
+        }
+
+        group.tasks.push(task);
+        await group.save();
+
+        const populatedGroup = await Group.findById(groupID)
+            .populate('tasks.created_by', 'name email');
+
+        res.json({ message: "Task Added successfully", task: task, populatedGroup });
+
+    } catch (error) {
+        console.log("Error:", error);
+        res.status(500).json({ error: "Failed to add task" });
+    }
+};
