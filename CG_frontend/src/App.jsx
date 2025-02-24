@@ -16,11 +16,14 @@ import ProjectPage from './Modules/ProjectPage/ProjectPage';
 import { ProjectDetails } from './Modules/ProjectPage/ProjectDetails';
 import HeroPortfolio from './Modules/ProjectPage/HeroPortfolio';
 import NotFound from './Modules/PageNotFound'
-import Dashboard from './Modules/Dashboard/Dashboard';
+import Dashboard from './Modules/Dashboard/StudentDashboard';
 import Resources from './Modules/Resources/Resources';
 import LeetTracker from './Modules/LeetcodeTracker/LeetTracker';
 import TutorDashboard from './Modules/TutorDashboard/TutorDashboard';
 import AdminDashboard from './Modules/Dashboard/AdminDashboard';
+import AdminSidebar from './Modules/Dashboard/AdminSidebar';
+import StudentSidebar from './Modules/Dashboard/StudentSidebar';
+import TutorSidebar from './Modules/TutorDashboard/TutorSidebar';
 
 function App() {
 
@@ -28,13 +31,12 @@ function App() {
     <>
       <Router>
         <Routes>
-          {/* <Route path="/cg" element={<Revamp />} /> */}
 
-          {/* Protected Route Wrapping Portfolio */}
+
+
 
 
           <Route element={<Revamp2 />}>
-
             <Route
               path="/port"
               element={
@@ -53,12 +55,6 @@ function App() {
 
 
             <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/student/dashboard" element={<Dashboard />} />
-            <Route path="/tutor/dashboard" element={<TutorDashboard />} />
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-
 
 
             <Route path="/activity" element={<ActivityPage />} />
@@ -68,6 +64,16 @@ function App() {
             <Route path='*' element={<NotFound />} />
 
           </Route>
+
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/signup" element={<SignUp />} /> */}
+          <Route path="/dashboard/admin" element={<AdminSidebar />} />
+          <Route path="/dashboard/tutor" element={<TutorSidebar />} />
+          <Route path="/dashboard/student" element={<StudentSidebar />} />
+
+
+
+
         </Routes>
       </Router>
     </>
