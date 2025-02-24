@@ -74,22 +74,38 @@ function App() {
           <Route path="/unauthorized" element={<Unauthorized />} />
 
           {/* Protected Routes with Role-Based Access */}
-          <Route
-            path="/dashboard/admin"
-            element={
-              <ProtectedRoute access="Admin">
-                <AdminSidebar />
-              </ProtectedRoute>
-            }
-          />
-          <Route
+
+
+          <Route element={<AdminSidebar />}>
+
+            <Route
+              path="/dashboard/admin"
+              element={
+                <ProtectedRoute access="Admin">
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/admin/users"
+              element={
+                <ProtectedRoute access="Admin">
+                  <AdminUsersList />
+                </ProtectedRoute>
+              }
+            />
+
+          </Route>
+
+
+          {/* <Route
             path="/dashboard/admin/users"
             element={
               <ProtectedRoute access="Admin">
                 <AdminUsersList />
               </ProtectedRoute>
             }
-          />
+          /> */}
           <Route
             path="/dashboard/tutor"
             element={

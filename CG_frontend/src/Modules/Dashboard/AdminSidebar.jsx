@@ -11,7 +11,7 @@ import {
   X
 } from 'lucide-react';
 import AdminDashboard from './AdminDashboard';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const AdminSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -82,7 +82,8 @@ const AdminSidebar = () => {
       </div>
 
       {/* Main content area */}
-      <AdminDashboard />
+      {/* <AdminDashboard /> */}
+      <Outlet />
 
     </div>
   );
