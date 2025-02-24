@@ -3,22 +3,14 @@ import { User } from '../../Model/User.Model.js'
 import mongoose from 'mongoose'
 
 
+// Task Controllers
 
-// Get a group from ID
-export const getGroup = async (req, res) => {
 
-    const { groupID } = req.params
-    // const groupID = "67b9a3afcfcab0e89cc9ae8e"
-
-    // Validate groupID
-    if (!mongoose.Types.ObjectId.isValid(groupID)) {
-        return res.status(400).json({ error: "Invalid group ID" });
-    }
-
+// Get ALl Groups
+export const getAllGroup = async (req, res) => {
     try {
-
         // Step 1: Find the group by ID and populate the 'users' field
-        const group = await Group.findById(groupID).populate({
+        const group = await Group.find().populate({
             path: 'users',
             select: 'name email'
         });
@@ -29,11 +21,52 @@ export const getGroup = async (req, res) => {
         }
 
         // Step 3: Send success response
-        res.json({ message: "Group fetched successfully", Group: group });
+        res.json({ message: "Groups fetched successfully", Groups: group });
 
     } catch (error) {
         console.log("Error:", error);
         res.status(500).json({ error: "Failed to get Group" });
+    }
+};
+
+// Get a group from  array of ID's
+
+export const getGroup = async (req, res) => {
+    // Assuming groupIDs is passed as an array in the request body or query params
+    const { groupIDs } = req.body;
+
+    // Validate groupIDs
+    if (!Array.isArray(groupIDs) || groupIDs.length === 0) {
+        return res.status(400).json({ error: "Invalid group IDs" });
+    }
+
+    // Validate each groupID in the array
+    for (const groupID of groupIDs) {
+        if (!mongoose.Types.ObjectId.isValid(groupID)) {
+            return res.status(400).json({ error: `Invalid group ID: ${groupID}` });
+        }
+    }
+
+    try {
+        // Step 1: Find all groups by IDs and populate the 'users' field
+        const groups = await Group.find({
+            _id: { $in: groupIDs }
+        }).populate({
+            path: 'users',
+            select: 'name email'
+        });
+
+        // Step 2: Check if any groups were found
+        if (!groups || groups.length === 0) {
+            return res.status(404).json({ error: "No groups found" });
+        }
+
+        // Step 3: Send success response
+        res.json({ message: "Groups fetched successfully", Groups: groups });
+
+    } catch (error) {
+        console.log("Error:", error);
+        res.status(500).json({ error: "Failed to get Groups" });
     }
 };
 
@@ -149,17 +182,17 @@ export const deleteUsersFromGroup = async (req, res) => {
 
 
 // Add Task to group by ID
-
 export const AddTaskByGroupId = async (req, res) => {
 
     const { groupID } = req.params
-    // const groupID = "67b9a3afcfcab0e89cc9ae8e"
     const { task } = req.body;
 
     // Validate groupID
     if (!mongoose.Types.ObjectId.isValid(groupID)) {
         return res.status(400).json({ error: "Invalid group ID" });
     }
+
+    console.log(task)
 
     // Validate the task object
     if (!task || !task.task_title || !task.due_date || !task.Priority || !task.created_by) {

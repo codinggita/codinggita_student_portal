@@ -19,6 +19,7 @@ import NotFound from './Modules/PageNotFound'
 import Dashboard from './Modules/Dashboard/Dashboard';
 import Resources from './Modules/Resources/Resources';
 import LeetTracker from './Modules/LeetcodeTracker/LeetTracker';
+import TutorDashboard from './Modules/TutorDashboard/TutorDashboard';
 
 function App() {
 
@@ -53,7 +54,8 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/student/dashboard" element={<Dashboard />} />
+            <Route path="/tutor/dashboard" element={<TutorDashboard />} />
 
 
 

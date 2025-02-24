@@ -95,7 +95,7 @@ export function Revamp2() {
             </NavLink>
 
             <NavLink
-              to="/port"
+              to="/myport"
               className={({ isActive }) => `
             flex items-center gap-4 px-4 py-3 transition-colors duration-200
             ${isActive ? 'bg-gray-700 text-[#7e22ce]' : 'text-gray-400 hover:bg-gray-700 hover:text-white'}
@@ -124,11 +124,27 @@ export function Revamp2() {
               </a> */}
 
 
-              <Link to={'/dashboard'}>
+              <Link to={'admin/dashboard'}>
                 <button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200 pb-2">
                   <SquareLibrary size={25} className="min-w-[30px]" />
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                    Dashboard
+                  Admin Dashboard
+                  </span>
+                </button>
+              </Link>
+              <Link to={'tutor/dashboard'}>
+                <button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200 pb-2">
+                  <SquareLibrary size={25} className="min-w-[30px]" />
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Tutor Dashboard
+                  </span>
+                </button>
+              </Link>
+              <Link to={'student/dashboard'}>
+                <button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200 pb-2">
+                  <SquareLibrary size={25} className="min-w-[30px]" />
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Student Dashboard
                   </span>
                 </button>
               </Link>

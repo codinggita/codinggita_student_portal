@@ -109,4 +109,6 @@ export const usePortfolioStore = create((set) => ({
                 Projects: [{ Title: "", Github: "", Figma: "", Documentation: "", Description: "", Images: [] }]
             },
         }),
+
+        
 }));
