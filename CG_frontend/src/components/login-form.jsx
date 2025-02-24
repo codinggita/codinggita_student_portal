@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { authStore } from "../Stores/store.js";
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 
 import { cn } from "@/lib/utils"
@@ -20,6 +21,9 @@ export function LoginForm({
 
   const { login } = authStore(); // Ensure this function exists in the store
 
+  const navigate = useNavigate();
+
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents page refresh
     setLoading(true)
@@ -29,7 +33,9 @@ export function LoginForm({
         console.log(response.message);
       } else {
         console.log("Success login");
-        // navigate('/dashboard');  // Uncomment if using React Router
+        setTimeout(() => {
+          navigate('/');
+        }, 2000)
       }
     } catch (error) {
       console.error("Error during registration:", error);

@@ -16,10 +16,16 @@ import ProjectPage from './Modules/ProjectPage/ProjectPage';
 import { ProjectDetails } from './Modules/ProjectPage/ProjectDetails';
 import HeroPortfolio from './Modules/ProjectPage/HeroPortfolio';
 import NotFound from './Modules/PageNotFound'
-import Dashboard from './Modules/Dashboard/Dashboard';
+import Dashboard from './Modules/Dashboard/StudentDashboard';
 import Resources from './Modules/Resources/Resources';
 import LeetTracker from './Modules/LeetcodeTracker/LeetTracker';
 import TutorDashboard from './Modules/TutorDashboard/TutorDashboard';
+import AdminDashboard from './Modules/Dashboard/AdminDashboard';
+import AdminSidebar from './Modules/Dashboard/AdminSidebar';
+import StudentSidebar from './Modules/Dashboard/StudentSidebar';
+import TutorSidebar from './Modules/TutorDashboard/TutorSidebar';
+import Unauthorized from './Modules/Unauthorized';
+import AdminUsersList from './Modules/Dashboard/AdminUsersList';
 
 function App() {
 
@@ -27,13 +33,12 @@ function App() {
     <>
       <Router>
         <Routes>
-          {/* <Route path="/cg" element={<Revamp />} /> */}
 
-          {/* Protected Route Wrapping Portfolio */}
+
+
 
 
           <Route element={<Revamp2 />}>
-
             <Route
               path="/port"
               element={
@@ -52,11 +57,6 @@ function App() {
 
 
             <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/student/dashboard" element={<Dashboard />} />
-            <Route path="/tutor/dashboard" element={<TutorDashboard />} />
-
 
 
             <Route path="/activity" element={<ActivityPage />} />
@@ -66,6 +66,50 @@ function App() {
             <Route path='*' element={<NotFound />} />
 
           </Route>
+
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/signup" element={<SignUp />} /> */}
+
+
+          <Route path="/unauthorized" element={<Unauthorized />} />
+
+          {/* Protected Routes with Role-Based Access */}
+          <Route
+            path="/dashboard/admin"
+            element={
+              <ProtectedRoute access="Admin">
+                <AdminSidebar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/admin/users"
+            element={
+              <ProtectedRoute access="Admin">
+                <AdminUsersList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/tutor"
+            element={
+              <ProtectedRoute access="Tutor">
+                <TutorSidebar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/student"
+            element={
+              <ProtectedRoute access="Student">
+                <StudentSidebar />
+              </ProtectedRoute>
+            }
+          />
+
+
+
+
         </Routes>
       </Router>
     </>

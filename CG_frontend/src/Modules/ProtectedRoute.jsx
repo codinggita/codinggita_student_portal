@@ -1,15 +1,22 @@
-import React from 'react'
-import { authStore } from '../Stores/store.js'
-import { Navigate } from 'react-router-dom';
+import React from "react";
+import { Navigate } from "react-router-dom";
+import { authStore } from "../Stores/store.js";
 
+const ProtectedRoute = ({ children, access }) => {
+  const { isAuthenticated, user } = authStore(); // Assuming `userRole` is available in authStore
 
+  // Redirect to login if not authenticated
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
 
-const ProtectedRoute = ({ children }) => {
+  // Check if the user has the required role
+  if (access && user.role !== access) {
+    return <Navigate to="/unauthorized" />; // Redirect to unauthorized page
+  }
 
-    const { isAuthenticated } = authStore();
+  // Allow access to the protected route
+  return children;
+};
 
-    return isAuthenticated ? children : <Navigate to="/login" />;
-
-}
-
-export default ProtectedRoute
+export default ProtectedRoute;

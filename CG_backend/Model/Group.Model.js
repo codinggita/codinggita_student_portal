@@ -14,6 +14,7 @@ const taskSchema = new mongoose.Schema({
 
 
 const groupSchema = new mongoose.Schema({
+
     group_name: {
         type: String,
         required: true
@@ -26,12 +27,28 @@ const groupSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
     }],
+
     created_by: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
         required: true
     },
-    tasks: [taskSchema] 
+
+    tasks: [taskSchema],
+
+    permissions: [{
+        tutorId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'user',
+            required: true
+        }
+        // accessLevel: {
+        //     type: String,
+        //     enum: ["read", "write", "admin"],
+        //     default: "write"
+        // }
+    }]
+
 
 }, { timestamps: true }); // Add timestamps for createdAt and updatedAt
 

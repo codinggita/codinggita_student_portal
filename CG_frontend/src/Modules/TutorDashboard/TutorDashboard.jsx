@@ -67,7 +67,6 @@ const TutorDashboard = () => {
                 setLoading(false);
             }
         };
-
         loadGroups();
     }, []);
 

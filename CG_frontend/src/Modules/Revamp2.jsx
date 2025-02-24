@@ -124,15 +124,15 @@ export function Revamp2() {
               </a> */}
 
 
-              <Link to={'admin/dashboard'}>
+              <Link to={'/dashboard/admin'}>
                 <button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200 pb-2">
                   <SquareLibrary size={25} className="min-w-[30px]" />
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  Admin Dashboard
+                    Admin Dashboard
                   </span>
                 </button>
               </Link>
-              <Link to={'tutor/dashboard'}>
+              <Link to={'/dashboard/tutor'}>
                 <button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200 pb-2">
                   <SquareLibrary size={25} className="min-w-[30px]" />
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
@@ -140,7 +140,7 @@ export function Revamp2() {
                   </span>
                 </button>
               </Link>
-              <Link to={'student/dashboard'}>
+              <Link to={'/dashboard/student'}>
                 <button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200 pb-2">
                   <SquareLibrary size={25} className="min-w-[30px]" />
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
@@ -155,7 +155,7 @@ export function Revamp2() {
                 (<button className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-200">
                   <CircleUserRound size={25} className="min-w-[30px]" />
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                    Jenil Savalia
+                    {user.name}
                   </span>
                 </button>)
                 : (
