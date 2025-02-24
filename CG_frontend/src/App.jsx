@@ -24,6 +24,7 @@ import AdminDashboard from './Modules/Dashboard/AdminDashboard';
 import AdminSidebar from './Modules/Dashboard/AdminSidebar';
 import StudentSidebar from './Modules/Dashboard/StudentSidebar';
 import TutorSidebar from './Modules/TutorDashboard/TutorSidebar';
+import Unauthorized from './Modules/Unauthorized';
 
 function App() {
 
@@ -67,9 +68,35 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           {/* <Route path="/signup" element={<SignUp />} /> */}
-          <Route path="/dashboard/admin" element={<AdminSidebar />} />
-          <Route path="/dashboard/tutor" element={<TutorSidebar />} />
-          <Route path="/dashboard/student" element={<StudentSidebar />} />
+
+
+          <Route path="/unauthorized" element={<Unauthorized />} />
+
+          {/* Protected Routes with Role-Based Access */}
+          <Route
+            path="/dashboard/admin"
+            element={
+              <ProtectedRoute access="Admin">
+                <AdminSidebar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/tutor"
+            element={
+              <ProtectedRoute access="Tutor">
+                <TutorSidebar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/student"
+            element={
+              <ProtectedRoute access="Student">
+                <StudentSidebar />
+              </ProtectedRoute>
+            }
+          />
 
 
 
