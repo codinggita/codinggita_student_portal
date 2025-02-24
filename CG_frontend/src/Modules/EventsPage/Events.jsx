@@ -19,11 +19,18 @@ const Events = () => {
     const [Loading, setLoading] = useState(true);
 
 
+
     useEffect(() => {
 
         const fetchEvents = async () => {
             try {
-                const events = await axios.get('http://localhost:8080/students/events')
+                const token = localStorage.getItem("token");
+
+                const events = await axios.get("http://localhost:8080/students/events", {
+                    headers: {
+                        Authorization: `Bearer ${token}` // Include token in the request
+                    }
+                });
                 Setdata(events.data);
                 console.log(events.data)
             } catch (err) {

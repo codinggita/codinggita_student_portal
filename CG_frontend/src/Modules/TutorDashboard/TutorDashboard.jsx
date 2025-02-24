@@ -17,7 +17,7 @@ const TutorDashboard = () => {
 
     const [selectedGroupID, setSelectedGroupID] = useState('');
 
-    const handleGroupChange = (e) => {
+        const handleGroupChange = (e) => {
         setSelectedGroupID(e.target.value); // Update the selected group ID
     };
 

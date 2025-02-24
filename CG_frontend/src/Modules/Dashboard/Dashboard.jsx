@@ -6,7 +6,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gray-900 text-gray-100 ml-14 w-full">
       {/* Main Grid Layout */}
       <div className="grid grid-cols-12 gap-6 p-6 ">
-        
+
         {/* User Section - Compact Header */}
         <div className="col-span-12 bg-gray-800 rounded-lg p-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -37,22 +37,22 @@ const Dashboard = () => {
               <h3 className="text-xl font-semibold">Post a Event</h3>
             </div>
             <form className="space-y-4">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 placeholder="Event Title"
                 className="w-full bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
-              <textarea 
+              <textarea
                 placeholder="Event Description"
                 className="w-full bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 rows="3"
               />
               <div className="flex space-x-4">
-                <input 
+                <input
                   type="date"
                   className="flex-1 bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
-                <button 
+                <button
                   type="submit"
                   className="bg-purple-600 px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
                 >
@@ -69,22 +69,22 @@ const Dashboard = () => {
               <h3 className="text-xl font-semibold">Add a Project</h3>
             </div>
             <form className="space-y-4">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 placeholder="Project Title"
                 className="w-full bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <textarea 
+              <textarea
                 placeholder="Project Description"
                 className="w-full bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 rows="3"
               />
               <div className="flex items-center space-x-4">
-                <input 
+                <input
                   type="file"
                   className="flex-1 bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <button 
+                <button
                   type="submit"
                   className="bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                 >
@@ -98,11 +98,11 @@ const Dashboard = () => {
           <div className="bg-gray-800 rounded-lg p-6">
             <div className="flex items-center space-x-3 mb-4">
               <UserCircle className="text-green-500" size={24} />
-              <h3 className="text-xl font-semibold">Edit Portfolio</h3>
+              <h1 className="text-xl font-semibold">Edit Portfolio</h1>
             </div>
             <div className="space-y-4">
               <p className="text-gray-400">Update your professional profile and showcase your achievements.</p>
-              <button 
+              <button
                 className="w-full bg-green-600 px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center space-x-2"
               >
                 <span>Edit Portfolio</span>
@@ -124,23 +124,23 @@ const Dashboard = () => {
                 <option>Academic Leave</option>
               </select>
               <div className="grid grid-cols-2 gap-4">
-                <input 
+                <input
                   type="date"
                   className="bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   placeholder="From Date"
                 />
-                <input 
+                <input
                   type="date"
                   className="bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   placeholder="To Date"
                 />
               </div>
-              <textarea 
+              <textarea
                 placeholder="Reason for Leave"
                 className="w-full bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 rows="2"
               />
-              <button 
+              <button
                 type="submit"
                 className="w-full bg-orange-600 px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors"
               >

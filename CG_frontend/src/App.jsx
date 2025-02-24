@@ -20,6 +20,7 @@ import Dashboard from './Modules/Dashboard/Dashboard';
 import Resources from './Modules/Resources/Resources';
 import LeetTracker from './Modules/LeetcodeTracker/LeetTracker';
 import TutorDashboard from './Modules/TutorDashboard/TutorDashboard';
+import AdminDashboard from './Modules/Dashboard/AdminDashboard';
 
 function App() {
 
@@ -56,6 +57,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/student/dashboard" element={<Dashboard />} />
             <Route path="/tutor/dashboard" element={<TutorDashboard />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
 
 
 
