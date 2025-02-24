@@ -25,6 +25,7 @@ import AdminSidebar from './Modules/Dashboard/AdminSidebar';
 import StudentSidebar from './Modules/Dashboard/StudentSidebar';
 import TutorSidebar from './Modules/TutorDashboard/TutorSidebar';
 import Unauthorized from './Modules/Unauthorized';
+import AdminUsersList from './Modules/Dashboard/AdminUsersList';
 
 function App() {
 
@@ -78,6 +79,14 @@ function App() {
             element={
               <ProtectedRoute access="Admin">
                 <AdminSidebar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/admin/users"
+            element={
+              <ProtectedRoute access="Admin">
+                <AdminUsersList />
               </ProtectedRoute>
             }
           />

@@ -51,3 +51,22 @@ export const loginUser = async (req, res) => {
         res.status(500).json({ error: "Server error" });
     }
 }
+
+
+export const getAllUsers = async (req, res) => {
+
+    try {
+        const user = await User.find();
+
+        if (!user) {
+            return res.status(401).json({ error: "Users Not Found" });
+        }
+
+        res.status(200).json({ Users: user });
+
+    } catch (error) {
+        console.error("error:", error);
+        res.status(500).json({ error: "Cannot Get Users" });
+    }
+}
+

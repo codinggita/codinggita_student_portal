@@ -11,19 +11,21 @@ import {
   X
 } from 'lucide-react';
 import AdminDashboard from './AdminDashboard';
+import { Link } from 'react-router-dom';
 
 const AdminSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [active, setActive] = useState('dashboard');
 
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: Home },
-    { id: 'users', label: 'Users', icon: Users },
+    { id: 'dashboard', label: 'Dashboard', icon: Home, link: "/dashboard/admin" },
+    { id: 'users', label: 'Users', icon: Users, link: "/dashboard/admin/users" },
     { id: 'products', label: 'Products', icon: ShoppingCart },
     { id: 'analytics', label: 'Analytics', icon: BarChart2 },
     { id: 'settings', label: 'Settings', icon: Settings },
     { id: 'help', label: 'Help & Support', icon: HelpCircle },
   ];
+
 
   return (
     <div className="flex h-screen">
@@ -51,16 +53,18 @@ const AdminSidebar = () => {
               const Icon = item.icon;
               return (
                 <li key={item.id}>
-                  <button
-                    onClick={() => setActive(item.id)}
-                    className={`flex items-center w-full p-3 ${active === item.id
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-300 hover:bg-gray-700'
-                      } ${collapsed ? 'justify-center' : 'justify-start'} transition-colors duration-200`}
-                  >
-                    <Icon size={20} />
-                    {!collapsed && <span className="ml-4">{item.label}</span>}
-                  </button>
+                  <Link to={item.link}>
+                    <button
+                      onClick={() => setActive(item.id)}
+                      className={`flex items-center w-full p-3 ${active === item.id
+                        ? 'bg-blue-600 text-white'
+                        : 'text-gray-300 hover:bg-gray-700'
+                        } ${collapsed ? 'justify-center' : 'justify-start'} transition-colors duration-200`}
+                    >
+                      <Icon size={20} />
+                      {!collapsed && <span className="ml-4">{item.label}</span>}
+                    </button>
+                  </Link>
                 </li>
               );
             })}
@@ -79,6 +83,7 @@ const AdminSidebar = () => {
 
       {/* Main content area */}
       <AdminDashboard />
+
     </div>
   );
 };
