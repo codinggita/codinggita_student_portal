@@ -26,6 +26,8 @@ import StudentSidebar from './Modules/Dashboard/StudentSidebar';
 import TutorSidebar from './Modules/TutorDashboard/TutorSidebar';
 import Unauthorized from './Modules/Unauthorized';
 import AdminUsersList from './Modules/Dashboard/AdminUsersList';
+import AdminGroups from './Modules/Dashboard/AdminGroups';
+import GroupDetails from './Modules/Dashboard/GroupDetails';
 
 function App() {
 
@@ -77,7 +79,6 @@ function App() {
 
 
           <Route element={<AdminSidebar />}>
-
             <Route
               path="/dashboard/admin"
               element={
@@ -94,7 +95,22 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
+            <Route
+              path="/dashboard/admin/groups"
+              element={
+                <ProtectedRoute access="Admin">
+                  <AdminGroups />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/admin/groups/:groupId"
+              element={
+                <ProtectedRoute access="Admin">
+                  <GroupDetails />
+                </ProtectedRoute>
+              }
+            />
           </Route>
 
 
