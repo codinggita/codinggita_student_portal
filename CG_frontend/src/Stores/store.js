@@ -60,6 +60,16 @@ export const authStore = create((set, get) => ({
 
 
 
+export const useAdminStore = create((set) => ({
+
+    groups: undefined,
+
+    // Function to go to the next step
+    setGroups: (data) => set((state) => ({ groups: data })),
+
+
+}));
+
 export const usePortfolioStore = create((set) => ({
     step: 1,
     formData: {
@@ -110,5 +120,9 @@ export const usePortfolioStore = create((set) => ({
             },
         }),
 
-        
+
 }));
+
+
+
+

@@ -26,6 +26,8 @@ import StudentSidebar from './Modules/Dashboard/StudentSidebar';
 import TutorSidebar from './Modules/TutorDashboard/TutorSidebar';
 import Unauthorized from './Modules/Unauthorized';
 import AdminUsersList from './Modules/Dashboard/AdminUsersList';
+import AdminGroups from './Modules/Dashboard/AdminGroups';
+import GroupDetails from './Modules/Dashboard/GroupDetails';
 
 function App() {
 
@@ -74,22 +76,52 @@ function App() {
           <Route path="/unauthorized" element={<Unauthorized />} />
 
           {/* Protected Routes with Role-Based Access */}
-          <Route
-            path="/dashboard/admin"
-            element={
-              <ProtectedRoute access="Admin">
-                <AdminSidebar />
-              </ProtectedRoute>
-            }
-          />
-          <Route
+
+
+          <Route element={<AdminSidebar />}>
+            <Route
+              path="/dashboard/admin"
+              element={
+                <ProtectedRoute access="Admin">
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/admin/users"
+              element={
+                <ProtectedRoute access="Admin">
+                  <AdminUsersList />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/admin/groups"
+              element={
+                <ProtectedRoute access="Admin">
+                  <AdminGroups />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/admin/groups/:groupId"
+              element={
+                <ProtectedRoute access="Admin">
+                  <GroupDetails />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+
+
+          {/* <Route
             path="/dashboard/admin/users"
             element={
               <ProtectedRoute access="Admin">
                 <AdminUsersList />
               </ProtectedRoute>
             }
-          />
+          /> */}
           <Route
             path="/dashboard/tutor"
             element={

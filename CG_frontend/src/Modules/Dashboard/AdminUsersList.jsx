@@ -26,7 +26,7 @@ const AdminUsersList = () => {
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [showFilterPopup, setShowFilterPopup] = useState(false);
   const [roleFilter, setRoleFilter] = useState('');
-  const usersPerPage = 5;
+  const usersPerPage = 10;
 
   const fetchAllGroups = async () => {
     try {
@@ -130,7 +130,7 @@ const AdminUsersList = () => {
   );
 
   return (
-    <div className="bg-white rounded-lg shadow-sm p-6">
+    <div className="bg-white rounded-lg shadow-sm p-6 w-screen" >
       {/* Header and search bar */}
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
         <h2 className="text-2xl font-semibold text-gray-800">Users Management</h2>
@@ -252,7 +252,7 @@ const AdminUsersList = () => {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {currentUsers.map((user) => (
-              <tr key={user.id} className="hover:bg-gray-50">
+              <tr key={user._id} className="hover:bg-gray-50">
                 <td className="px-4 py-3 whitespace-nowrap">
                   <input
                     type="checkbox"

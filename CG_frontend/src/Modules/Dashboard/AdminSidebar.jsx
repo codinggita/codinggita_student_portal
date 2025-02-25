@@ -11,7 +11,7 @@ import {
   X
 } from 'lucide-react';
 import AdminDashboard from './AdminDashboard';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const AdminSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -20,7 +20,7 @@ const AdminSidebar = () => {
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: Home, link: "/dashboard/admin" },
     { id: 'users', label: 'Users', icon: Users, link: "/dashboard/admin/users" },
-    { id: 'products', label: 'Products', icon: ShoppingCart },
+    { id: 'products', label: 'Groups', icon: ShoppingCart ,link: "/dashboard/admin/groups"},
     { id: 'analytics', label: 'Analytics', icon: BarChart2 },
     { id: 'settings', label: 'Settings', icon: Settings },
     { id: 'help', label: 'Help & Support', icon: HelpCircle },
@@ -82,7 +82,8 @@ const AdminSidebar = () => {
       </div>
 
       {/* Main content area */}
-      <AdminDashboard />
+      {/* <AdminDashboard /> */}
+      <Outlet />
 
     </div>
   );
